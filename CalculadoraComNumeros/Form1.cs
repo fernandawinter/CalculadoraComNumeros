@@ -35,6 +35,16 @@ namespace CalculadoraComNumeros
                     break;
 
                 case "/": Total = Total / UltimoNumero;
+                    if (UltimoNumero == 0)
+                    {
+                        Limpar();
+                        MessageBox.Show("Não é possivel dividir por zero", "Alerta Calculadora",
+                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    else
+                    {
+                        Total = Total / UltimoNumero;
+                    }
                     break;
 
                 case "*": Total = Total * UltimoNumero;
