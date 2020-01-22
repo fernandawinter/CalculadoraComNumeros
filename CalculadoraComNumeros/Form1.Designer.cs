@@ -237,7 +237,7 @@
             this.Controls.Add(this.btn7);
             this.Controls.Add(this.txtBoxResultado);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Calculadora";
             this.ResumeLayout(false);
             this.PerformLayout();
 

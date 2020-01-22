@@ -65,8 +65,10 @@ namespace CalculadoraComNumeros
             }
             else
             {
-                UltimoNumero = Convert.ToDouble(txtBoxResultado.Text);
+                txtBoxResultado.Text = txtBoxResultado.Text + (sender as Button).Text;
             }
+                UltimoNumero = Convert.ToDouble(txtBoxResultado.Text);
+
         }
 
         private void btnOperador(object sender, EventArgs e)
