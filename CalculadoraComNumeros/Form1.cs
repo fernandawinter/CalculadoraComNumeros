@@ -12,9 +12,81 @@ namespace CalculadoraComNumeros
 {
     public partial class Form1 : Form
     {
+        double Total;
+        double UltimoNumero;
+        string Operador;
+
+        private void Limpar()
+        {
+            Total = 0;
+            UltimoNumero = 0;
+            Operador = "+";
+            txtBoxResultado.Text = "0";
+        }
+
+        private void Calcular()
+        {
+            switch(Operador)
+            {
+                case "+": Total = Total + UltimoNumero;
+                    break;
+
+                case "-": Total = Total - UltimoNumero;
+                    break;
+
+                case "/": Total = Total / UltimoNumero;
+                    break;
+
+                case "*": Total = Total * UltimoNumero;
+                    break;
+            }
+
+            UltimoNumero = 0;
+            txtBoxResultado.Text = Total.ToString();
+        }
+
         public Form1()
         {
             InitializeComponent();
+
+            Limpar();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            Limpar();
+        }
+
+        private void btnNumero(object sender, EventArgs e)
+        {
+            if (UltimoNumero == 0)
+            {
+                txtBoxResultado.Text = (sender as Button).Text;
+            }
+            else
+            {
+                UltimoNumero = Convert.ToDouble(txtBoxResultado.Text);
+            }
+        }
+
+        private void btnOperador(object sender, EventArgs e)
+        {
+            UltimoNumero = Convert.ToDouble(txtBoxResultado.Text);
+
+            Calcular();
+
+            Operador = (sender as Button).Text;
+        }
+
+        private void btnIgual_Click(object sender, EventArgs e)
+        {
+            UltimoNumero = Convert.ToDouble(txtBoxResultado.Text);
+
+            Calcular();
+
+            Operador = "+";
+
+            Total = 0;
         }
     }
 }
